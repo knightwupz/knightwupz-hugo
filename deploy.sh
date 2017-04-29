@@ -12,7 +12,7 @@ git commit -m "$msg"
 git push origin master
 
 # Build the project.
-hugo -t hugo-tranquilpeak-theme # if using a theme, replace by `hugo -t <yourtheme>`
+hugo --theme=hugo-tranquilpeak-theme # if using a theme, replace by `hugo -t <yourtheme>`
 
 # Go To Public folder
 cd public
