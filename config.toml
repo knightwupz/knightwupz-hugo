@@ -15,7 +15,7 @@
 baseurl = "https://knightwupz.github.io/"
 languageCode = "zh-cn"
 defaultContentLanguage = "zh-cn"
-title = "Hugo tranquilpeak theme"
+title = "Websites of WU Pengze"
 theme = "hugo-tranquilpeak-theme"
 disqusShortname = ""
 # googleAnalytics = "UA-123-45"
