@@ -1,186 +1,213 @@
-# Tranquilpeak
-# Version : 0.3.1-BETA
-# Author : Thibaud Leprêtre
+# This config file only for develop
+# This file is hugo-theme-jane demo-site config
 
-# I STRONGLY recommend you to use a CDN to speed up loading of pages.
-# There is many free CDN like Cloudinary or you can also use indirectly
-# by using services like Google Photos.
+baseURL = "https://knightwupz.github.io"
+title = "WUPZ - A Website for Wu Pengze"
+enableRobotsTXT = true
+enableEmoji = true
+theme = "jane"
 
-# If you want to store images yourself, please read this guidelines:
-# For users, if you only use this theme, put your images directly in `source/assets/images` folder
-# But if you want to add local images, you can put your images directly in `source/assets/images` folder
-# For developpers, if you modify this theme, put your images in `source/images` folder and
-# use grunt task `build` to synchronize assets
+hasCJKLanguage = true     # has chinese/japanese/korean ? # 自动检测是否包含 中文\日文\韩文
+paginate = 10                                              # 首页每页显示的文章数
+rssLimit = 20             # Limit Entry Count to Rss file # 限制 Rss 文章输出数量
+# disqusShortname = "xianmin12"      # disqus_shortname
+# googleAnalytics = "UA-34199129-1"      # UA-XXXXXXXX-X
+copyright = ""            # default: author.name ↓        # 默认为下面配置的author.name ↓
+# uglyURLs = true
 
-baseurl = "https://knightwupz.github.io/"
-languageCode = "zh-cn"
-defaultContentLanguage = "zh-cn"
-title = "Websites of WU Pengze"
-theme = "hugo-tranquilpeak-theme"
-disqusShortname = ""
-# googleAnalytics = "UA-123-45"
-paginate = 7
-canonifyurls = true
+# Highlight options. See https://gohugo.io/content-management/syntax-highlighting/
+pygmentsCodeFences = true # Enable syntax highlighting with GitHub flavoured code fences
+pygmentsUseClasses = true # Use CSS classes to format highlighted code
+pygmentsCodefencesGuessSyntax = true
+pygmentsOptions = "linenos=table"
 
-[permalinks]
-  post = "/:year/:month/:slug/"
-
-[taxonomies]
-  tag = "tags"
-  category = "categories"
-  archive = "archives"
-
-[author]
-  name = "WU Pengze"
-  bio = "WU"
-  job = "PhD candidate"
-  location = "Beijing, China"
-  # Your Gravatar email. Overwrite `author.picture` everywhere in the blog
-  gravatarEmail = ""
-  # Your profile picture
-  # Overwritten by your gravatar image if `author.gravatarEmail` is filled
-  picture = "https://cdn1.iconfinder.com/data/icons/ninja-things-1/1772/ninja-simple-512.png"
-  # Your Twitter username without the @. E.g : thibaudlepretre
-  # twitter = "thibaudlepretre"
-  # Your google plus profile id. E.g : +ThibaudLepretre or 114625208755123718311
-  # googlePlus = "+ThibaudLepretre"
-
-# Menu Configuration
-[[menu.main]]
-  weight = 0
-  identifier = "home"
-  name = "Home"
-  pre = "<i class=\"sidebar-button-icon fa fa-lg fa-home\"></i>"
-  url = "/"
-[[menu.main]]
+# language support en / zh-cn / other... translations present in i18n/
+defaultContentLanguage = "en"  # Default language to use (if you setup multilingual support)
+[langusges]
+[languages.en]
+  title = "WUPZ -- A website for my learning notes of something interested"
+  languageName = "English"
   weight = 1
-  identifier = "categories"
-  name = "Categories"
-  pre = "<i class=\"sidebar-button-icon fa fa-lg fa-bookmark\"></i>"
-  url = "/categories"
-[[menu.main]]
+[languages.zh-cn]
+  title = "泽郴老仙 —— 目前只是学习笔记"
+  languageName = "中文"
   weight = 2
-  identifier = "tags"
+[[languages.en.menu.main]]
+  name = "Home"
+  weight = 10
+  identifier = "home"
+  url = "https://knightwupz.github.io"
+
+# docs submenu
+
+[[languages.en.menu.main]]
+  name = "Blogs"
+  weight = 20
+  identifier = "blogs"
+  url = "/post/blogs"
+
+[[languages.en.menu.main]]
+  name = "Notes"
+  weight = 21
+  identifier = "notes"
+  url = "/post/notes"
+
+[[languages.en.menu.main]]
   name = "Tags"
-  pre = "<i class=\"sidebar-button-icon fa fa-lg fa-tags\"></i>"
-  url = "/tags"
-[[menu.main]]
-  weight = 3
-  identifier = "archives"
-  name = "Archives"
-  pre = "<i class=\"sidebar-button-icon fa fa-lg fa-archive\"></i>"
-  url = "/archives"
-[[menu.main]]
-  weight = 4
-  identifier = "about"
-  name = "About"
-  pre = "<i class=\"sidebar-button-icon fa fa-lg fa-question\"></i>"
-  url = "/#about"
+  weight = 30
+  identifier = "tags"
+  url = "/tags/"
 
-[[menu.links]]
-  weight = 0
-  identifier = "github"
-  name = "GitHub"
-  pre = "<i class=\"sidebar-button-icon fa fa-lg fa-github\"></i>"
-  url = "https://github.com/knightwupz"
-[[menu.links]]
-  weight = 1
-  identifier = "stackoverflow"
-  name = "Stack Overflow"
-  pre = "<i class=\"sidebar-button-icon fa fa-lg fa-stack-overflow\"></i>"
-  url = "https://stackoverflow.com/users/636472/kakawait"
+[[languages.en.menu.main]]
+  name = "Categories"
+  weight = 40
+  identifier = "categories"
+  url = "/categories/"
 
-[[menu.misc]]
-  weight = 0
-  identifier = "rss"
-  name = "RSS"
-  pre = "<i class=\"sidebar-button-icon fa fa-lg fa-rss\"></i>"
-  url = "/index.xml"
+[[languages.en.menu.main]]
+  name = "Pipelines"
+  weight = 50
+  identifier = "pipelines"
+  url = "/post/pipelines"
+
+[[languages.en.menu.main]]
+  name = "external-link"
+  weight = 60
+  url = "https://gohugo.io"
+
+[[languages.zh-cn.menu.main]]
+  name = "主页"
+  weight = 10
+  identifier = "home"
+  url = "zh-cn/"
+[[languages.zh-cn.menu.main]]
+  name = "博客"
+  weight = 20
+  identifier = "blogs"
+  url = "zh-cn/post/blogs"
+  [[languages.zh-cn.menu.main]]
+  name = "笔记"
+  weight = 21
+  identifier = "notes"
+  url = "zh-cn/post/notes"
+[[languages.zh-cn.menu.main]]
+  name = "标签"
+  weight = 30
+  identifier = "tags"
+  url = "zh-cn/tags/"
+[[languages.zh-cn.menu.main]]
+  name = "分类"
+  weight = 40
+  identifier = "categories"
+  url = "zh-cn/categories/"
+[[languages.zh-cn.menu.main]]
+  name = "流程"
+  weight = 50
+  identifier = "pipelines"
+  url = "zh-cn/post/pipelines"
+[[languages.zh-cn.menu.main]]
+  name = "外部链接"
+  weight = 50
+  url = "https://gohugo.io"
+
+
+[author]                  # essential                     # 必需
+  name = "Wu Pengze"
+
+[sitemap]                 # essential                     # 必需
+  changefreq = "weekly"
+  priority = 0.5
+  filename = "sitemap.xml"
+
 
 [params]
-  # Customize date format use to render blog post date, categories and other
-  # You must use date format used by Go Time package https://golang.org/pkg/time/
-  # Months (not work with short month like "jan", "feb", etc) are translated if translation exists on i18n folders
-  # Default format is: January 2, 2006 
-  # dateFormat = "2 January 2006"
+  debug = false             # If true, load `eruda.min.js`. See https://github.com/liriliri/eruda
+  since = "2019.06"            # Site creation time          # 站点建立时间
+  homeFullContent = false   # if false, show post summaries on home page. Othewise show full content.
+  rssFullContent = true     # if false, Rss feed instead of the summary
 
-  # Global keywords configuration. Following keywords will be add to every pages
-  # keywords = ["development", "next-gen"]
+  # site info (optional)                                  # 站点信息（可选，不需要的可以直接注释掉）
+  logoTitle = "WUPZ"        # default: the title value    # 默认值: 上面设置的title值
+  keywords = ["Hugo", "theme","WUPZ"]
+  description = "A website of WUPZ supported by hugo."
 
-  # Hide sidebar on all article page to let article take full width to improve reading, and enjoy wide images and cover images. (true: enable, false: disable)
-  clearReading = true
+  # paginate of archives, tags and categories             # 归档、标签、分类每页显示的文章数目，建议修改为一个较大的值
+  archive-paginate = 10
 
-  # Define categories will create hierarchy between parents: `categories = ["foo", "bar"]` will consider "bar" a sub-category of "foo". 
-  # If false it will flat categories.
-  hierarchicalCategories = true
+  # paginate style, default use numbered pagination links
+  # if true, use original "Previous" and "Next" links.
+  # paginateOriginalStyle = true
 
-  description = "This is WU Pengze's websites"
+  # The date format to use; for a list of valid formats, see https://gohugo.io/functions/format/
+  dateFormatToUse = "2006-01-02"
 
-  # Customization
-  # Define the behavior of the sidebar
-  # 1: Display extra large sidebar on extra large screen, large sidebar on large screen,
-  #    medium sidebar on medium screen and header bar on small screen and
-  # extra large sidebar is swiped on extra large screen and large sidebar on all lower screen (default)
-  # 2: Display large sidebar on large screen, medium sidebar on medium screen and
-  #    header bar on small screen and large sidebar is swiped
-  # 3: Display medium sidebar on large and medium screen and header bar on small screen and
-  #    medium sidebar is swiped
-  # 4: Display header bar on all screens, extra large sidebar is swiped on extra large screen and
-  #    large sidebar is swiped on all lower screens
-  # 5: Display header bar on all screens and large sidebar is swiped on large screen
-  # 6: Display header bar on all screens and medium sidebar is swiped
-  sidebarBehavior = 1
+  # show word count and read time ?                       # 是否显示字数统计与阅读时间
+  moreMeta = true
 
-  # Your blog cover picture. I STRONGLY recommend you to use a CDN to speed up loading of pages.
-  # There is many free CDN like Cloudinary or you can also use indirectly
-  # by using services like Google Photos.
-  # Current image is on AWS S3 and delivered by AWS CloudFront.
-  # Otherwise put your image in folder `static/_images/` (development)  or in `source/assets/images/` if you can't or don't want to build the theme,
-  # and use relative url : `your-image.png`
-  coverImage = "cover.jpg"
+  # show language chooser in menu
+  showMenuLanguageChooser = true
 
-  # Display an image gallery at the end of a post which have photos variables (false: disabled, true: enabled)
-  imageGallery = true
+  # 一些全局开关，你也可以在每一篇内容的 front matter 中针对单篇内容关闭或开启某些功能，在 archetypes/default.md 查看更多信息。
+  # Some global options, you can also close or open something in front matter for a single post, see more information from `archetypes/default.md`.
+  toc = true                                                                            # 是否开启目录
+  photoswipe = true         # see https://github.com/dimsemenov/PhotoSwipe            # 是否启用PhotoSwipe（图片可点击）
+  bootcdn = false           # In china. @Deprecated: use [params.publicCDN]             # 是否使用bootcdn(@Deprecated: 请使用[params.publicCDN])
+  mathjax = true           # see https://www.mathjax.org/                              # 是否使用mathjax（数学公式）
 
-  # Display thumbnail image of each post on index pages (false: disabled, true: enabled)
-  thumbnailImage = true
-  # Display thumbnail image at the right of title in index pages (`right`, `left` or `bottom`)
-  # Set this value to `right` if you have old posts to keep the old style on them
-  # and define `thumbnailImagePosition` on a post to overwrite this setting
-  thumbnailImagePosition = "bottom"
-  # Automatically select the cover image or the first photo from the gallery of a post if there is no thumbnail image as the thumbnail image
-  # Set this value to `true` if you have old posts that use the cover image or the first photo as the thumbnail image
-  # and set `autoThumbnailImage` to `false` on a post to overwrite this setting
-  autoThumbnailImage = true
+  contentCopyright = '<a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">CC BY-NC-ND 4.0</a>'
 
-  # Your favicon path, default is "/favicon.png"
-  # favicon = "/favicon.png"
+  changyanAppid = ""        # Changyan app id             # 畅言
+  changyanAppkey = ""       # Changyan app key
+  tencent_analytics = ""    # Tencent Analytics
+  baidu_push = false        # baidu push                  # 百度
+  baidu_analytics = ""      # Baidu Analytics
+  baidu_verification = ""   # Baidu Verification
+  google_verification = ""  # Google_Verification         # 谷歌
 
-  # Header configuration
-  # The link at the right of the header is customizable
-  # You can add a link (as an icon) at the right of the header instead of the author's gravatar image or author's picture.
-  # By default, author's gravatar or author's picture is displayed.
-  #     url: /#search
-  #     icon: search
-  #     class: st-search-show-outputs
+  # Link custom CSS and JS assets
+  #   (relative to /static/css and /static/js respectively)
+  customCSS = []            # if ['custom.css'], load '/static/css/custom.css' file
+  customJS = []             # if ['custom.js'], load '/static/js/custom.js' file
 
-  # Custom CSS. Put here your custom CSS files. They are loaded after the theme CSS;
-  # they have to be referred from static root. Example
-  # customCSS = ["css/foo.css"]
+  # enable 'fork me on github', https://blog.github.com/2008-12-19-github-ribbons/
+  # forkMeOnGithub = "https://github.com/xianmin/hugo-theme-jane"
 
-  # Custom JS. Put here your custom JS files. They are loaded after the theme JS;
-  # they have to be referred from static root. Example
-  # customJS = ["js/foo.js"]
+  [params.publicCDN]        # load these files from public cdn                          # 启用公共CDN，需自行定义
+    enable = false
+    jquery = '<script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>'
+    slideout = '<script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>'
 
-  [params.header.rightLink]
-    class = ""
-    icon = ""
-    url = "/#about"
+  [params.commento] # Commento is a feature rich lightweight comment system oriented on privacy (https://commento.io/)
+    enable = false
+    url = "http://commento.example.com"
 
-  # Customize like of athor avatar in sidebar
-  # [params.sidebar.profile]
-  #   url = "/#about"
 
-  # Customize copyright value "© 2016 <CUSTOMIZATION>. All Rights Reserved"
-  # [params.footer]
-  #   copyright = "<a href=\"https://github.com/kakawait\">kakawait</a>"
+  [params.utteranc]         # utteranc is a comment system based on GitHub issues. see https://utteranc.es
+    enable = true
+    repo = "xianmin/comments-for-hugo-theme-jane"    # The repo to store comments
+    issueTerm = "pathname"
+    theme = "github-light"                           # theme: github-light, github-dark, github-dark-orange, icy-dark, dark-blue, photon-dark
+
+  [params.reward]                                         # 文章打赏
+    enable = false
+    wechat = "/path/to/your/wechat-qr-code.png"           # 微信二维码
+    alipay = "/path/to/your/alipay-qr-code.png"           # 支付宝二维码
+
+  [params.social]                                         # 社交链接
+    a-email = "mailto:wpzno1@126.com"
+    #b-stack-overflow = "http://en.xianmin.org/hugo-theme-jane/"
+    #c-twitter = "http://en.xianmin.org/hugo-theme-jane/"
+    #d-facebook = "http://en.xianmin.org/hugo-theme-jane/"
+    #e-linkedin = "http://en.xianmin.org/hugo-theme-jane/"
+    #f-google = "http://en.xianmin.org/hugo-theme-jane/"
+    g-github = "https://github.com/knightwupz/"
+    #h-weibo = "http://en.xianmin.org/hugo-theme-jane/"
+    #i-zhihu = "http://en.xianmin.org/hugo-theme-jane/"
+    #j-douban = "http://en.xianmin.org/hugo-theme-jane/"
+    #k-pocket = "http://en.xianmin.org/hugo-theme-jane/"
+    #l-tumblr = "http://en.xianmin.org/hugo-theme-jane/"
+    #m-instagram = "http://en.xianmin.org/hugo-theme-jane/"
+    #n-gitlab = "http://en.xianmin.org/hugo-theme-jane/"
+    #o-goodreads = "http://en.xianmin.org/hugo-theme-jane/"
+    #p-coding = "http://en.xianmin.org/hugo-theme-jane/"
+    #q-bilibili = "http://en.xianmin.org/hugo-theme-jane/"
