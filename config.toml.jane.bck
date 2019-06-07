@@ -29,42 +29,82 @@ defaultContentLanguage = "zh-cn"  # Default language to use (if you setup multil
   languageName = "中文"
   weight = 1
 
+[languages.en]
+  title = "WUPZ -- A website for my learning notes of something interested"
+  languageName = "English"
+  weight = 2
+
+[[languages.en.menu.main]]
+  name = "Home"
+  weight = 10
+  identifier = "home"
+  url = "https://knightwupz.github.io"
+
+[[languages.en.menu.main]]
+  name = "Blogs"
+  weight = 20
+  identifier = "blogs"
+  url = "en/post/blogs"
+
+[[languages.en.menu.main]]
+  name = "Notes"
+  weight = 21
+  identifier = "notes"
+  url = "en/post/notes"
+
+[[languages.en.menu.main]]
+  name = "Pipelines"
+  weight = 25
+  identifier = "pipelines"
+  url = "en/post/pipelines"
+
+[[languages.en.menu.main]]
+  name = "Tags"
+  weight = 30
+  identifier = "tags"
+  url = "en/tags/"
+
+[[languages.en.menu.main]]
+  name = "Categories"
+  weight = 40
+  identifier = "categories"
+  url = "en/categories/"
+
+[[languages.en.menu.main]]
+  name = "Hugo"
+  weight = 50
+  url = "https://gohugo.io"
+
 [[languages.zh-cn.menu.main]]
   name = "主页"
   weight = 10
   identifier = "home"
   url = "https://knightwupz.github.io"
-
 [[languages.zh-cn.menu.main]]
   name = "博客"
   weight = 20
   identifier = "blogs"
   url = "/post/blogs"
-
-[[languages.zh-cn.menu.main]]
+  [[languages.zh-cn.menu.main]]
   name = "笔记"
   weight = 21
   identifier = "notes"
   url = "/post/notes"
-
 [[languages.zh-cn.menu.main]]
   name = "流程"
   weight = 25
   identifier = "pipelines"
   url = "/post/pipelines"
-
 [[languages.zh-cn.menu.main]]
   name = "标签"
   weight = 30
   identifier = "tags"
   url = "/tags/"
-
 [[languages.zh-cn.menu.main]]
   name = "分类"
   weight = 40
   identifier = "categories"
   url = "/categories/"
-
 [[languages.zh-cn.menu.main]]
   name = "Hugo"
   weight = 50
@@ -103,7 +143,7 @@ defaultContentLanguage = "zh-cn"  # Default language to use (if you setup multil
   moreMeta = true
 
   # show language chooser in menu
-  showMenuLanguageChooser = false
+  showMenuLanguageChooser = true
 
   # 一些全局开关，你也可以在每一篇内容的 front matter 中针对单篇内容关闭或开启某些功能，在 archetypes/default.md 查看更多信息。
   # Some global options, you can also close or open something in front matter for a single post, see more information from `archetypes/default.md`.
