@@ -2,9 +2,6 @@
 	path = public
 	url = git@github.com:knightwupz/knightwupz.github.io.git
 	branch = master
-[submodule "themes/docdock"]
-	path = themes/docdock
-	url = https://github.com/vjeantet/hugo-theme-docdock.git
 [submodule "themes/jane"]
 	path = themes/jane
-	url = https://github.com/xianmin/hugo-theme-jane.git
+	url = https://github.com/knightwupz/hugo-theme-jane.git
