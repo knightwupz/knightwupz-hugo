@@ -24,92 +24,91 @@ pygmentsOptions = "linenos=table"
 # language support en / zh-cn / other... translations present in i18n/
 defaultContentLanguage = "zh-cn"  # Default language to use (if you setup multilingual support)
 [langusges]
-[languages.en]
-  title = "WUPZ -- A website for my learning notes of something interested"
-  languageName = "English"
-  weight = 1
 [languages.zh-cn]
   title = "泽郴老仙 —— 目前只是学习笔记"
   languageName = "中文"
+  weight = 1
+
+[languages.en]
+  title = "WUPZ -- A website for my learning notes of something interested"
+  languageName = "English"
   weight = 2
+
 [[languages.en.menu.main]]
   name = "Home"
   weight = 10
   identifier = "home"
   url = "https://knightwupz.github.io"
 
-# docs submenu
-
 [[languages.en.menu.main]]
   name = "Blogs"
   weight = 20
   identifier = "blogs"
-  url = "/post/blogs"
+  url = "en/post/blogs"
 
 [[languages.en.menu.main]]
   name = "Notes"
   weight = 21
   identifier = "notes"
-  url = "/post/notes"
+  url = "en/post/notes"
+
+[[languages.en.menu.main]]
+  name = "Pipelines"
+  weight = 25
+  identifier = "pipelines"
+  url = "en/post/pipelines"
 
 [[languages.en.menu.main]]
   name = "Tags"
   weight = 30
   identifier = "tags"
-  url = "/tags/"
+  url = "en/tags/"
 
 [[languages.en.menu.main]]
   name = "Categories"
   weight = 40
   identifier = "categories"
-  url = "/categories/"
+  url = "en/categories/"
 
 [[languages.en.menu.main]]
-  name = "Pipelines"
+  name = "Hugo"
   weight = 50
-  identifier = "pipelines"
-  url = "/post/pipelines"
-
-[[languages.en.menu.main]]
-  name = "external-link"
-  weight = 60
   url = "https://gohugo.io"
 
 [[languages.zh-cn.menu.main]]
   name = "主页"
   weight = 10
   identifier = "home"
-  url = "zh-cn/"
+  url = "https://knightwupz.github.io"
 [[languages.zh-cn.menu.main]]
   name = "博客"
   weight = 20
   identifier = "blogs"
-  url = "zh-cn/post/blogs"
+  url = "/post/blogs"
   [[languages.zh-cn.menu.main]]
   name = "笔记"
   weight = 21
   identifier = "notes"
-  url = "zh-cn/post/notes"
+  url = "/post/notes"
+[[languages.zh-cn.menu.main]]
+  name = "流程"
+  weight = 25
+  identifier = "pipelines"
+  url = "/post/pipelines"
 [[languages.zh-cn.menu.main]]
   name = "标签"
   weight = 30
   identifier = "tags"
-  url = "zh-cn/tags/"
+  url = "/tags/"
 [[languages.zh-cn.menu.main]]
   name = "分类"
   weight = 40
   identifier = "categories"
-  url = "zh-cn/categories/"
+  url = "/categories/"
 [[languages.zh-cn.menu.main]]
-  name = "流程"
-  weight = 50
-  identifier = "pipelines"
-  url = "zh-cn/post/pipelines"
-[[languages.zh-cn.menu.main]]
-  name = "外部链接"
+  name = "Hugo"
   weight = 50
   url = "https://gohugo.io"
-
 
 [author]                  # essential                     # 必需
   name = "Wu Pengze"
@@ -119,7 +118,6 @@ defaultContentLanguage = "zh-cn"  # Default language to use (if you setup multil
   priority = 0.5
   filename = "sitemap.xml"
 
-
 [params]
   debug = false             # If true, load `eruda.min.js`. See https://github.com/liriliri/eruda
   since = "2019.06"            # Site creation time          # 站点建立时间
@@ -128,8 +126,8 @@ defaultContentLanguage = "zh-cn"  # Default language to use (if you setup multil
 
   # site info (optional)                                  # 站点信息（可选，不需要的可以直接注释掉）
   logoTitle = "WUPZ"        # default: the title value    # 默认值: 上面设置的title值
-  keywords = ["Hugo", "theme","WUPZ"]
-  description = "A website of WUPZ supported by hugo."
+  keywords = ["WUPZ", "NGS", "bioinformatics", "Deep Learning"]
+  description = "A website of WUPZ supported by Hugo."
 
   # paginate of archives, tags and categories             # 归档、标签、分类每页显示的文章数目，建议修改为一个较大的值
   archive-paginate = 10
@@ -195,12 +193,13 @@ defaultContentLanguage = "zh-cn"  # Default language to use (if you setup multil
 
   [params.social]                                         # 社交链接
     a-email = "mailto:wpzno1@126.com"
+    g-github = "https://github.com/knightwupz/"
+
     #b-stack-overflow = "http://en.xianmin.org/hugo-theme-jane/"
     #c-twitter = "http://en.xianmin.org/hugo-theme-jane/"
     #d-facebook = "http://en.xianmin.org/hugo-theme-jane/"
     #e-linkedin = "http://en.xianmin.org/hugo-theme-jane/"
     #f-google = "http://en.xianmin.org/hugo-theme-jane/"
-    g-github = "https://github.com/knightwupz/"
     #h-weibo = "http://en.xianmin.org/hugo-theme-jane/"
     #i-zhihu = "http://en.xianmin.org/hugo-theme-jane/"
     #j-douban = "http://en.xianmin.org/hugo-theme-jane/"
