@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>泽郴老仙 —— 目前只是学习笔记</title>
+    <link>https://knightwupz.github.io/post/notes/</link>
+    <description>Recent content on 泽郴老仙 —— 目前只是学习笔记</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Sat, 03 Mar 2018 16:01:23 +0800</lastBuildDate>
+    
+	<atom:link href="https://knightwupz.github.io/post/notes/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Git的基本使用方法</title>
+      <link>https://knightwupz.github.io/post/notes/git%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/</link>
+      <pubDate>Sat, 03 Mar 2018 16:01:23 +0800</pubDate>
+      
+      <guid>https://knightwupz.github.io/post/notes/git%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/</guid>
+      <description>Git的基本使用方法 安装 下载官方网站最新版本：https://git-scm.com/downloads， 支持Windows，Linux/U</description>
+    </item>
+    
+  </channel>
+</rss>

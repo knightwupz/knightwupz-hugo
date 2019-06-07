@@ -1,0 +1,2 @@
+User-agent: *
+Sitemap: https://knightwupz.github.io/sitemap.xml

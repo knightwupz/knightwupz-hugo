@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>blogs on 泽郴老仙 —— 目前只是学习笔记</title>
+    <link>https://knightwupz.github.io/categories/blogs/</link>
+    <description>Recent content in blogs on 泽郴老仙 —— 目前只是学习笔记</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Sat, 29 Apr 2017 16:50:00 +0800</lastBuildDate>
+    
+	<atom:link href="https://knightwupz.github.io/categories/blogs/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>胡搞一个博客</title>
+      <link>https://knightwupz.github.io/post/blogs/%E8%83%A1%E6%90%9E%E4%B8%80%E4%B8%AA%E5%8D%9A%E5%AE%A2/</link>
+      <pubDate>Sat, 29 Apr 2017 16:50:00 +0800</pubDate>
+      
+      <guid>https://knightwupz.github.io/post/blogs/%E8%83%A1%E6%90%9E%E4%B8%80%E4%B8%AA%E5%8D%9A%E5%AE%A2/</guid>
+      <description>胡搞一个博客 hugo简介 git简介 生成本地站点 首先创建一个新的本地站点，命名为knightwupz-hugo：hugo new site knightwupz-hugo 。切换到新站点目</description>
+    </item>
+    
+  </channel>
+</rss>

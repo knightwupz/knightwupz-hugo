@@ -1,0 +1,1120 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>泽郴老仙 —— 目前只是学习笔记</title>
+    <link>https://knightwupz.github.io/</link>
+    <description>Recent content on 泽郴老仙 —— 目前只是学习笔记</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Sat, 03 Mar 2018 16:01:23 +0800</lastBuildDate>
+    
+        <atom:link href="https://knightwupz.github.io/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Git的基本使用方法</title>
+      <link>https://knightwupz.github.io/post/notes/git%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/</link>
+      <pubDate>Sat, 03 Mar 2018 16:01:23 +0800</pubDate>
+      
+      <guid>https://knightwupz.github.io/post/notes/git%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/</guid>
+      
+        <description>
+
+&lt;h1 id=&#34;git的基本使用方法&#34;&gt;Git的基本使用方法&lt;/h1&gt;
+
+&lt;h2 id=&#34;安装&#34;&gt;安装&lt;/h2&gt;
+
+&lt;p&gt;下载官方网站最新版本：&lt;a href=&#34;https://git-scm.com/downloads，&#34;&gt;https://git-scm.com/downloads，&lt;/a&gt; 支持Windows，Linux/Unix，macOS系统。&lt;/p&gt;
+
+&lt;h2 id=&#34;git配置&#34;&gt;Git配置&lt;/h2&gt;
+
+&lt;h3 id=&#34;常用git配置&#34;&gt;常用git配置&lt;/h3&gt;
+
+&lt;ol&gt;
+&lt;li&gt;配置命令别名&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;可以给常用命令设置别名，提高使用效率。&lt;/p&gt;
+
+&lt;p&gt;别名的配置也使用config命令，比如给&lt;code&gt;git status&lt;/code&gt;设置别名&lt;code&gt;st&lt;/code&gt;：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;git config --global alias.st status&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;修改log显示效果：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;git config --global alias.lg &amp;#34;log --color --graph --pretty=format:&amp;#39;%C(bold red)%h%C(reset) - %C(bold green)(%cr)%C(bold blue)&amp;lt;%an&amp;gt;%C(reset) -%C(bold yellow)%d%C(reset) %s&amp;#39; --abbrev-commit&amp;#34;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;修改句尾换行设置
+不同操作系统句尾换行设置不同，windows为CRLF（回车+换行，即\r\n），linux为LF（换行）， macOS为CR（回车）。当文件在不同操作系统之间传递时可能引起乱码，windows系统需要修改autocrlf设置为true。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;git config --global core.autocrlf true&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;配置默认文本编辑器&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;默认编辑器为vim，可更改为自己熟悉的编辑器。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;git config [--system|global] core.editor emacs&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;ol&gt;
+&lt;li&gt;配置差异分析工具
+默认工具为git diff，可修改为其他工具：kdiff3、tkdiff、meld、xxdiff、emerge、vimdiff、gvimdiff、ecmerge、opendiff等等。&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;例如要改用vimdiff，可以这样设置：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;git config [--system|global] merge.tool vimdiff&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;h3 id=&#34;git配置文件&#34;&gt;git配置文件&lt;/h3&gt;
+
+&lt;p&gt;修改配置文件内容可以直接修改git环境变量。&lt;/p&gt;
+
+&lt;p&gt;git有三个级别的配置文件，可以使用&lt;code&gt;git config&lt;/code&gt;工具来配置或读取相应的环境变量。&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;版本库级配置文件&lt;/li&gt;
+&lt;li&gt;位置：&lt;code&gt;gitrepos/.git/config&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;配置仅对当前版本库有效&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;使用&lt;code&gt;git config --local&lt;/code&gt;进行修改&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;全局配置文件&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;位置：&lt;code&gt;C:/Users/xxx/.gitconfig&lt;/code&gt; （windows）&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;配置仅对当前用户有效&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;使用&lt;code&gt;git config --global&lt;/code&gt;进行修改
+0&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;系统级配置文件&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;位置：Windows系统为&lt;code&gt;C:/ProgramData/Git&lt;/code&gt;，mac和Linux为&lt;code&gt;/etc/gitconfig&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;配置仅对当前用户有效&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;使用&lt;code&gt;git config --global&lt;/code&gt;进行修改&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;全局配置文件(C:/Users/xxx/.gitconfig)的一个简单模板：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;14
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;15
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;16
+&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;[core]
+    editor = \&amp;#34;C:\\Program Files\\Sublime Text 3\\subl.exe\&amp;#34; -w
+[user]
+    name = knightwupz
+    email = wpzno1@126.com
+[alias]
+    lg = log --color --graph --pretty=format:&amp;#39;%C(bold red)%h%C(reset) - %C(bold green)(%cr)%C(bold blue)&amp;lt;%an&amp;gt;%C(reset) -%C(bold yellow)%d%C(reset) %s&amp;#39; --abbrev-commit
+    co = checkout
+    br = branch
+    mg = merge
+    cm = commit
+    df = difftools
+    mt = mergetool
+    last = log -1 HEAD
+    cf = config
+    st = status&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;h2 id=&#34;创建版本库-repository&#34;&gt;创建版本库(repository)&lt;/h2&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;创建空文件&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;mkdir learningGit
+cd learningGit&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;初始化git仓库&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;git init&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;添加文件
+用编辑器创建文件readme.txt&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;Git is a version control system.
+This repository is for my notes of learning Git.&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;提交评论&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;git commit -m &amp;#34;wrote a readme file&amp;#34;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;查看提交记录&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;14
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;15
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;16
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;17
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;18
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;19
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;20
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;21
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;22
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;23
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;24
+&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;$ git log
+commit 046e987b8118c7845485889d3373d84f2fe7e893 (HEAD -&amp;gt; master)
+Author: knightwupz &amp;lt;wpzno1@126.com&amp;gt;
+Date:   Tue May 28 20:41:52 2019 +0800
+
+20190528修改版
+
+commit fd2ddbef702e7f736a8066ee49c940a16e04145d
+Author: knightwupz &amp;lt;wpzno1@126.com&amp;gt;
+Date:   Mon May 27 19:27:28 2019 +0800
+
+解决git的中文显示问题
+
+commit 4c7cc5dc24d45b1b8163664a39bf1ef84b19ee55
+Author: knightwupz &amp;lt;wpzno1@126.com&amp;gt;
+Date:   Mon May 27 18:42:59 2019 +0800
+
+first note
+
+commit df93cccc31b1d516d588bb5f2d38bef88586dffc
+Author: knightwupz &amp;lt;wpzno1@126.com&amp;gt;
+Date:   Mon May 27 18:41:32 2019 +0800
+
+wrote a readme file&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;查看版本库当前状态&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;使用&lt;code&gt;git status&lt;/code&gt;命令查看版本库当前状态。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;$ git st
+On branch master
+nothing to commit, working tree clean&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;查看文档修改内容&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;8
+&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;$ git diff
+diff --git a/Git的基本使用方法.md b/Git的基本使用方法.md
+index 77fe77e..df5619f 100644
+--- a/Git的基本使用方法.md
++++ b/Git的基本使用方法.md
+@@ -135,13 +135,18 @@ Date:   Mon May 27 18:41:32 2019 +0800
+
+# ……以下内容有所省略&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&#34;参考文档&#34;&gt;参考文档&lt;/h2&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;a href=&#34;https://git-scm.com/book/zh/v1/%E8%87%AA%E5%AE%9A%E4%B9%89-Git-%E9%85%8D%E7%BD%AE-Git&#34;&gt;自定义-Git-配置-Git&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.liaoxuefeng.com/wiki/896043488029600&#34;&gt;廖雪峰Git教程&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+</description>
+      
+    </item>
+    
+    <item>
+      <title>Image Preview</title>
+      <link>https://knightwupz.github.io/post/image-preview/</link>
+      <pubDate>Sat, 03 Mar 2018 16:01:23 +0800</pubDate>
+      
+      <guid>https://knightwupz.github.io/post/image-preview/</guid>
+      
+        <description>&lt;p&gt;Thanks for &lt;a href=&#34;https://github.com/liwenyip/hugo-easy-gallery&#34;&gt;liwenyip/hugo-easy-gallery&lt;/a&gt; &amp;amp; &lt;a href=&#34;https://github.com/xianmin/hugo-theme-jane/pull/48&#34;&gt;Zebradil · Pull Request #48&lt;/a&gt; .&lt;/p&gt;
+
+&lt;p&gt;Now, we could use &lt;code&gt;{{&amp;lt; gallery &amp;gt;}}&lt;/code&gt; shortcode in hugo-theme-jane.&lt;/p&gt;
+
+&lt;h2 id=&#34;normal-image&#34;&gt;Normal Image&lt;/h2&gt;
+
+&lt;p&gt;This is an image in &lt;code&gt;static/image&lt;/code&gt; folder.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-markdown&#34; data-lang=&#34;markdown&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-markdown&#34; data-lang=&#34;markdown&#34;&gt;![&lt;span class=&#34;nt&#34;&gt;This is an image in `static/image` folder.&lt;/span&gt;](&lt;span class=&#34;na&#34;&gt;/image/example.jpg&lt;/span&gt;)&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;h2 id=&#34;figure-shortcode&#34;&gt;&lt;code&gt;{{&amp;lt; figure &amp;gt;}}&lt;/code&gt; shortcode&lt;/h2&gt;
+
+&lt;h3 id=&#34;figure-image-with-title&#34;&gt;figure image with title&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;{{&amp;lt; figure src=&amp;#34;/image/example.jpg&amp;#34; title=&amp;#34;figure image with title&amp;#34; &amp;gt;}}&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;h3 id=&#34;figure-image-with-caption&#34;&gt;figure image with caption&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;{{&amp;lt; figure src=&amp;#34;/image/example.jpg&amp;#34; caption=&amp;#34;figure image with caption figure image with caption figure image with caption figure image with caption figure image with caption&amp;#34; &amp;gt;}}&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;h3 id=&#34;more-figure-shortcode-usage&#34;&gt;more &lt;code&gt;{{&amp;lt; figure &amp;gt;}}&lt;/code&gt; shortcode usage&lt;/h3&gt;
+
+&lt;p&gt;Specifying your image files:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;{{&amp;lt; figure src=&amp;quot;thumb.jpg&amp;quot; link=&amp;quot;image.jpg&amp;quot; &amp;gt;}}&lt;/code&gt; will use &lt;code&gt;thumb.jpg&lt;/code&gt; for thumbnail and &lt;code&gt;image.jpg&lt;/code&gt; for lightbox&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;{{&amp;lt; figure src=&amp;quot;image.jpg&amp;quot; &amp;gt;}}&lt;/code&gt; or &lt;code&gt;{{&amp;lt; figure link=&amp;quot;image.jpg&amp;quot; &amp;gt;}}&lt;/code&gt; will use &lt;code&gt;image.jpg&lt;/code&gt; for both thumbnail and lightbox&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;{{&amp;lt; figure link=&amp;quot;image.jpg&amp;quot; thumb=&amp;quot;-small&amp;quot; &amp;gt;}}&lt;/code&gt; will use &lt;code&gt;image-small.jpg&lt;/code&gt; for thumbnail and &lt;code&gt;image.jpg&lt;/code&gt; for lightbox&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Optional parameters:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;All the &lt;a href=&#34;https://gohugo.io/extras/shortcodes&#34;&gt;features/parameters&lt;/a&gt; of Hugo&amp;rsquo;s built-in &lt;code&gt;figure&lt;/code&gt; shortcode work as normal, i.e. src, link, title, caption, class, attr (attribution), attrlink, alt&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;size&lt;/code&gt; (e.g. &lt;code&gt;size=&amp;quot;1024x768&amp;quot;&lt;/code&gt;) pre-defines the image size for PhotoSwipe. Use this option if you don&amp;rsquo;t want to pre-load the linked image to determine its size.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;class&lt;/code&gt; allows you to set any custom classes you want on the &lt;code&gt;&amp;lt;figure&amp;gt;&lt;/code&gt; tag.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Optional parameters for standalone &lt;code&gt;{{&amp;lt; figure &amp;gt;}}&lt;/code&gt; shortcodes only (i.e. don&amp;rsquo;t use on &lt;code&gt;{{&amp;lt; figure &amp;gt;}}&lt;/code&gt; inside &lt;code&gt;{{&amp;lt; gallery &amp;gt;}}&lt;/code&gt; - strange things may happen if you do):&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;caption-position&lt;/code&gt; and &lt;code&gt;caption-effect&lt;/code&gt; work the same as for the &lt;code&gt;{{&amp;lt; gallery &amp;gt;}}&lt;/code&gt; shortcode (see below).&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;width&lt;/code&gt; defines the &lt;a href=&#34;https://www.w3schools.com/cssref/pr_dim_max-width.asp&#34;&gt;&lt;code&gt;max-width&lt;/code&gt;&lt;/a&gt; of the image displayed on the page. If using a thumbnail for a standalone figure, set this equal to your thumbnail&amp;rsquo;s native width to make the captions behave properly (or feel free to come up with a better solution and submit a pull request :-)). Also use this option if you don&amp;rsquo;t have a thumbnail and you don&amp;rsquo;t want the hi-res image to take up the entire width of the screen/container.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;class=&amp;quot;no-photoswipe&amp;quot;&lt;/code&gt; prevents a &lt;code&gt;&amp;lt;figure&amp;gt;&lt;/code&gt; from being loaded into PhotoSwipe. If you click on the figure you&amp;rsquo;ll instead a good ol&amp;rsquo; fashioned hyperlink to a bigger image (or - if you haven&amp;rsquo;t specified a bigger image - the same one).&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;gallery-shortcode&#34;&gt;&lt;code&gt;{{&amp;lt; gallery &amp;gt;}}&lt;/code&gt; shortcode&lt;/h2&gt;
+
+&lt;h3 id=&#34;simple-gallery&#34;&gt;simple gallery&lt;/h3&gt;
+
+&lt;p&gt;To specify a directory of image files:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;{{&amp;lt; gallery dir=&amp;#34;/img/your-directory-of-images/&amp;#34; &amp;gt;}}&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;ul&gt;
+&lt;li&gt;The images are automatically captioned with the file name.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;[image].jpg&lt;/code&gt; is used for the hi-res image, and &lt;code&gt;[image]-thumb.jpg&lt;/code&gt; is used for the thumbnails.&lt;/li&gt;
+&lt;li&gt;If &lt;code&gt;[image]-thumb.jpg&lt;/code&gt; doesn&amp;rsquo;t exist, then &lt;code&gt;[image].jpg&lt;/code&gt; will be used for both hi-res and thumbnail images.&lt;/li&gt;
+&lt;li&gt;The default thumbnail suffix is &lt;code&gt;-thumb&lt;/code&gt;, but you can specify a different one e.g. &lt;code&gt;thumb=&amp;quot;-small&amp;quot;&lt;/code&gt; or &lt;code&gt;thumb=&amp;quot;_150x150&amp;quot;&lt;/code&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;to-specify-individual-image-files&#34;&gt;To specify individual image files&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;{{&amp;lt; gallery &amp;gt;}}
+  {{&amp;lt; figure src=&amp;#34;image1.jpg&amp;#34; &amp;gt;}}
+  {{&amp;lt; figure src=&amp;#34;image2.jpg&amp;#34; &amp;gt;}}
+  {{&amp;lt; figure src=&amp;#34;image3.jpg&amp;#34; &amp;gt;}}
+{{&amp;lt; /gallery &amp;gt;}}&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;strong&gt;Optional parameters:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;caption-position&lt;/code&gt; - determines the captions&amp;rsquo; position over the image. Options:
+
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;bottom&lt;/code&gt; (default)&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;center&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;none&lt;/code&gt; hides captions on the page (they will only show in PhotoSwipe)&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;caption-effect&lt;/code&gt; - determines if/how captions appear upon hover. Options:
+
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;slide&lt;/code&gt; (default)&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;fade&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;none&lt;/code&gt; (captions always visible)&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;hover-effect&lt;/code&gt; - determines if/how images change upon hover. Options:
+
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;zoom&lt;/code&gt; (default)&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;grow&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;shrink&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;slideup&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;slidedown&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;none&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;hover-transition&lt;/code&gt; - determines if/how images change upon hover. Options:
+
+&lt;ul&gt;
+&lt;li&gt;not set - smooth transition (default)&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;none&lt;/code&gt; - hard transition&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;</description>
+      
+    </item>
+    
+    <item>
+      <title>胡搞一个博客</title>
+      <link>https://knightwupz.github.io/post/blogs/%E8%83%A1%E6%90%9E%E4%B8%80%E4%B8%AA%E5%8D%9A%E5%AE%A2/</link>
+      <pubDate>Sat, 29 Apr 2017 16:50:00 +0800</pubDate>
+      
+      <guid>https://knightwupz.github.io/post/blogs/%E8%83%A1%E6%90%9E%E4%B8%80%E4%B8%AA%E5%8D%9A%E5%AE%A2/</guid>
+      
+        <description>
+
+&lt;h1 id=&#34;胡搞一个博客&#34;&gt;胡搞一个博客&lt;/h1&gt;
+
+&lt;h2 id=&#34;hugo简介&#34;&gt;hugo简介&lt;/h2&gt;
+
+&lt;h2 id=&#34;git简介&#34;&gt;git简介&lt;/h2&gt;
+
+&lt;h2 id=&#34;生成本地站点&#34;&gt;生成本地站点&lt;/h2&gt;
+
+&lt;p&gt;首先创建一个新的本地站点，命名为knightwupz-hugo：&lt;code&gt;hugo new site knightwupz-hugo&lt;/code&gt;
+。切换到新站点目录里：&lt;code&gt;cd knightwupz-hugo&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;创建一个新的页面“about”：
+&lt;code&gt;hugo new about.md&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;再创建一个新的页面“post/first”:
+&lt;code&gt;hugo new post/first.md&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;注意&lt;code&gt;hugo new&lt;/code&gt;命令创建的页面都位于content目录里。&lt;/p&gt;
+
+&lt;p&gt;查看页面内容：
+&lt;code&gt;cat content/post/first.md&lt;/code&gt;, 已经自动生成了如下内容：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;6
+&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;+++
+date = &amp;#34;2017-04-29T15:06:24+08:00&amp;#34;
+draft = true
+title = &amp;#34;first&amp;#34;
+
++++&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;此时可以自由编辑新创建的“first”文件内容，使用markdown格式。&lt;/p&gt;
+
+&lt;p&gt;在hugo 的github网站上下载网页模板：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;cd themes
+git clone https://github.com/digitalcraftsman/hugo-icarus-theme.git&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;启动本地调试查看效果：
+&lt;code&gt;hugo server --theme=hugo-icarus-theme --buildDrafts --watch&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;在浏览器中打开网址即可查看本地站点的内容：&lt;a href=&#34;http://localhost:1313/&#34;&gt;http://localhost:1313/&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;将本地站点资料同步到github仓库&#34;&gt;将本地站点资料同步到github仓库&lt;/h2&gt;
+
+&lt;p&gt;这一步主要是方便以后的资料管理，比如可以在不同的笔记本上分别编辑不同的文件，并保持内容同步。
+参考：&lt;a href=&#34;https://gohugo.io/tutorials/github-pages-blog/&#34;&gt;https://gohugo.io/tutorials/github-pages-blog/&lt;/a&gt; 。
+1. 在github上“&lt;your-project&gt;-hugo”仓库用于存储本地站点资料。
+2. 在本地站点根目录下初始化git仓库：&lt;code&gt;git init&lt;/code&gt;
+3. 查看本地内容改动：&lt;code&gt;git status&lt;/code&gt;
+4. 将改动文件添加到本地git仓库：&lt;code&gt;git add xx_files&lt;/code&gt;，并添加改动评语：&lt;code&gt;git commit -m &#39;20170429 test my hugo websites&#39;&lt;/code&gt;
+5. 将本地仓库与github远端仓库链接起来：&lt;code&gt;git remote add origin https://github.com/knightwupz/knightwupz-hugo&lt;/code&gt;
+6. 将本地仓库同步到远端仓库：&lt;code&gt;git pull origin master&lt;/code&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;将本地站点资料部署到github-page&#34;&gt;将本地站点资料部署到github-page&lt;/h2&gt;
+
+&lt;ol&gt;
+&lt;li&gt;在github网站上创建一个“&lt;username&gt;.github.io”仓库用于存储静态网站页面。&lt;/li&gt;
+&lt;li&gt;进入本地站点根目录，确认本地站点运行正常：&lt;code&gt;hugo server -t &amp;lt;yourtheme&amp;gt;&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;确保没有问题之后，ctrl+c退出本地服务器，并清除public目录内容：&lt;code&gt;rm -rf public&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;使用git submodule功能将public目录连接到github-page页面：&lt;code&gt;git submodule add -b master git@github.com:knightwupz/knightwupz.github.io.git public&lt;/code&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;使用deploy.sh脚本自动实现自动部署：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;14
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;15
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;16
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;17
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;18
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;19
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;20
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;21
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;22
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;23
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;24
+&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;span class=&#34;cp&#34;&gt;#!/bin/bash
+&lt;/span&gt;&lt;span class=&#34;cp&#34;&gt;&lt;/span&gt;
+&lt;span class=&#34;nb&#34;&gt;echo&lt;/span&gt; -e &lt;span class=&#34;s2&#34;&gt;&amp;#34;\033[0;32mDeploying updates to GitHub...\033[0m&amp;#34;&lt;/span&gt;
+
+&lt;span class=&#34;c1&#34;&gt;# Build the project.&lt;/span&gt;
+hugo -t hugo-icarus-theme &lt;span class=&#34;c1&#34;&gt;# if using other themes, replace by `hugo -t &amp;lt;yourtheme&amp;gt;`&lt;/span&gt;
+
+&lt;span class=&#34;c1&#34;&gt;# Go To Public folder&lt;/span&gt;
+&lt;span class=&#34;nb&#34;&gt;cd&lt;/span&gt; public
+&lt;span class=&#34;c1&#34;&gt;# Add changes to git.&lt;/span&gt;
+git add -A
+
+&lt;span class=&#34;c1&#34;&gt;# Commit changes.&lt;/span&gt;
+&lt;span class=&#34;nv&#34;&gt;msg&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;rebuilding site `date`&amp;#34;&lt;/span&gt;
+&lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;[&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$#&lt;/span&gt; -eq &lt;span class=&#34;m&#34;&gt;1&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;]&lt;/span&gt;
+    &lt;span class=&#34;k&#34;&gt;then&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;msg&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$1&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt;
+&lt;span class=&#34;k&#34;&gt;fi&lt;/span&gt;
+git commit -m &lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$msg&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt;
+
+&lt;span class=&#34;c1&#34;&gt;# Push source and build repos.&lt;/span&gt;
+git push origin master
+
+&lt;span class=&#34;c1&#34;&gt;# Come Back&lt;/span&gt;
+&lt;span class=&#34;nb&#34;&gt;cd&lt;/span&gt; ..&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;更新网站并提交评语：&lt;code&gt;./deploy.sh &amp;quot;Your optional commit message&amp;quot;&lt;/code&gt;
+7.&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+</description>
+      
+    </item>
+    
+    <item>
+      <title>Go is for lovers</title>
+      <link>https://knightwupz.github.io/go-is-for-lovers/</link>
+      <pubDate>Thu, 17 Sep 2015 13:47:08 +0200</pubDate>
+      
+      <guid>https://knightwupz.github.io/go-is-for-lovers/</guid>
+      
+        <description>
+
+&lt;p&gt;Hugo uses the excellent &lt;a href=&#34;http://golang.org/&amp;gt;&#34;&gt;go&lt;/a&gt; &lt;a href=&#34;http://golang.org/pkg/html/template/&amp;gt;&#34;&gt;html/template&lt;/a&gt; library for
+its template engine. It is an extremely lightweight engine that provides a very
+small amount of logic. In our experience that it is just the right amount of
+logic to be able to create a good static website. If you have used other
+template systems from different languages or frameworks you will find a lot of
+similarities in go templates.&lt;/p&gt;
+
+&lt;p&gt;This document is a brief primer on using go templates. The &lt;a href=&#34;http://golang.org/pkg/html/template/&amp;gt;&#34;&gt;go docs&lt;/a&gt;
+provide more details.&lt;/p&gt;
+
+&lt;h2 id=&#34;introduction-to-go-templates&#34;&gt;Introduction to Go Templates&lt;/h2&gt;
+
+&lt;p&gt;Go templates provide an extremely simple template language. It adheres to the
+belief that only the most basic of logic belongs in the template or view layer.
+One consequence of this simplicity is that go templates parse very quickly.&lt;/p&gt;
+
+&lt;p&gt;A unique characteristic of go templates is they are content aware. Variables and
+content will be sanitized depending on the context of where they are used. More
+details can be found in the &lt;a href=&#34;http://golang.org/pkg/html/template/&amp;gt;&#34;&gt;go docs&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2 id=&#34;basic-syntax&#34;&gt;Basic Syntax&lt;/h2&gt;
+
+&lt;p&gt;Go lang templates are html files with the addition of variables and
+functions.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Go variables and functions are accessible within {{ }}&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Accessing a predefined variable &amp;ldquo;foo&amp;rdquo;:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;{{ foo }}&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;strong&gt;Parameters are separated using spaces&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Calling the add function with input of 1, 2:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;{{ add 1 2 }}&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;strong&gt;Methods and fields are accessed via dot notation&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Accessing the Page Parameter &amp;ldquo;bar&amp;rdquo;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;{{ .Params.bar }}&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;strong&gt;Parentheses can be used to group items together&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;{{ if or (isset .Params &amp;#34;alt&amp;#34;) (isset .Params &amp;#34;caption&amp;#34;) }} Caption {{ end }}&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;h2 id=&#34;variables&#34;&gt;Variables&lt;/h2&gt;
+
+&lt;p&gt;Each go template has a struct (object) made available to it. In hugo each
+template is passed either a page or a node struct depending on which type of
+page you are rendering. More details are available on the
+&lt;a href=&#34;https://knightwupz.github.io/layout/variables&#34;&gt;variables&lt;/a&gt; page.&lt;/p&gt;
+
+&lt;p&gt;A variable is accessed by referencing the variable name.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&amp;lt;title&amp;gt;{{ .Title }}&amp;lt;/title&amp;gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;Variables can also be defined and referenced.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;{{ $address := &amp;#34;123 Main St.&amp;#34;}}
+{{ $address }}&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;h2 id=&#34;functions&#34;&gt;Functions&lt;/h2&gt;
+
+&lt;p&gt;Go template ship with a few functions which provide basic functionality. The go
+template system also provides a mechanism for applications to extend the
+available functions with their own. &lt;a href=&#34;https://knightwupz.github.io/layout/functions&#34;&gt;Hugo template
+functions&lt;/a&gt; provide some additional functionality we believe
+are useful for building websites. Functions are called by using their name
+followed by the required parameters separated by spaces. Template
+functions cannot be added without recompiling hugo.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Example:&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;{{ add 1 2 }}&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;h2 id=&#34;includes&#34;&gt;Includes&lt;/h2&gt;
+
+&lt;p&gt;When including another template you will pass to it the data it will be
+able to access. To pass along the current context please remember to
+include a trailing dot. The templates location will always be starting at
+the /layout/ directory within Hugo.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Example:&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;{{ template &amp;#34;chrome/header.html&amp;#34; . }}&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;h2 id=&#34;logic&#34;&gt;Logic&lt;/h2&gt;
+
+&lt;p&gt;Go templates provide the most basic iteration and conditional logic.&lt;/p&gt;
+
+&lt;h3 id=&#34;iteration&#34;&gt;Iteration&lt;/h3&gt;
+
+&lt;p&gt;Just like in go, the go templates make heavy use of range to iterate over
+a map, array or slice. The following are different examples of how to use
+range.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Example 1: Using Context&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;{{ range array }}
+    {{ . }}
+{{ end }}&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;strong&gt;Example 2: Declaring value variable name&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;{{range $element := array}}
+    {{ $element }}
+{{ end }}&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;strong&gt;Example 2: Declaring key and value variable name&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;{{range $index, $element := array}}
+    {{ $index }}
+    {{ $element }}
+{{ end }}&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;h3 id=&#34;conditionals&#34;&gt;Conditionals&lt;/h3&gt;
+
+&lt;p&gt;If, else, with, or, &amp;amp; and provide the framework for handling conditional
+logic in Go Templates. Like range, each statement is closed with &lt;code&gt;end&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;Go Templates treat the following values as false:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;false&lt;/li&gt;
+&lt;li&gt;0&lt;/li&gt;
+&lt;li&gt;any array, slice, map, or string of length zero&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Example 1: If&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;{{ if isset .Params &amp;#34;title&amp;#34; }}&amp;lt;h4&amp;gt;{{ index .Params &amp;#34;title&amp;#34; }}&amp;lt;/h4&amp;gt;{{ end }}&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;strong&gt;Example 2: If -&amp;gt; Else&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;{{ if isset .Params &amp;#34;alt&amp;#34; }}
+    {{ index .Params &amp;#34;alt&amp;#34; }}
+{{else}}
+    {{ index .Params &amp;#34;caption&amp;#34; }}
+{{ end }}&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;strong&gt;Example 3: And &amp;amp; Or&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;{{ if and (or (isset .Params &amp;#34;title&amp;#34;) (isset .Params &amp;#34;caption&amp;#34;)) (isset .Params &amp;#34;attr&amp;#34;)}}&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;strong&gt;Example 4: With&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;An alternative way of writing &amp;ldquo;if&amp;rdquo; and then referencing the same value
+is to use &amp;ldquo;with&amp;rdquo; instead. With rebinds the context &lt;code&gt;.&lt;/code&gt; within its scope,
+and skips the block if the variable is absent.&lt;/p&gt;
+
+&lt;p&gt;The first example above could be simplified as:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;{{ with .Params.title }}&amp;lt;h4&amp;gt;{{ . }}&amp;lt;/h4&amp;gt;{{ end }}&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;strong&gt;Example 5: If -&amp;gt; Else If&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;{{ if isset .Params &amp;#34;alt&amp;#34; }}
+    {{ index .Params &amp;#34;alt&amp;#34; }}
+{{ else if isset .Params &amp;#34;caption&amp;#34; }}
+    {{ index .Params &amp;#34;caption&amp;#34; }}
+{{ end }}&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;h2 id=&#34;pipes&#34;&gt;Pipes&lt;/h2&gt;
+
+&lt;p&gt;One of the most powerful components of go templates is the ability to
+stack actions one after another. This is done by using pipes. Borrowed
+from unix pipes, the concept is simple, each pipeline&amp;rsquo;s output becomes the
+input of the following pipe.&lt;/p&gt;
+
+&lt;p&gt;Because of the very simple syntax of go templates, the pipe is essential
+to being able to chain together function calls. One limitation of the
+pipes is that they only can work with a single value and that value
+becomes the last parameter of the next pipeline.&lt;/p&gt;
+
+&lt;p&gt;A few simple examples should help convey how to use the pipe.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Example 1 :&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;{{ if eq 1 1 }} Same {{ end }}&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;is the same as&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;{{ eq 1 1 | if }} Same {{ end }}&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;It does look odd to place the if at the end, but it does provide a good
+illustration of how to use the pipes.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Example 2 :&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;{{ index .Params &amp;#34;disqus_url&amp;#34; | html }}&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;Access the page parameter called &amp;ldquo;disqus_url&amp;rdquo; and escape the HTML.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Example 3 :&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;{{ if or (or (isset .Params &amp;#34;title&amp;#34;) (isset .Params &amp;#34;caption&amp;#34;)) (isset .Params &amp;#34;attr&amp;#34;)}}
+Stuff Here
+{{ end }}&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;Could be rewritten as&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;{{  isset .Params &amp;#34;caption&amp;#34; | or isset .Params &amp;#34;title&amp;#34; | or isset .Params &amp;#34;attr&amp;#34; | if }}
+Stuff Here
+{{ end }}&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;h2 id=&#34;context-aka-the-dot&#34;&gt;Context (aka. the dot)&lt;/h2&gt;
+
+&lt;p&gt;The most easily overlooked concept to understand about go templates is that {{ . }}
+always refers to the current context. In the top level of your template this
+will be the data set made available to it. Inside of a iteration it will have
+the value of the current item. When inside of a loop the context has changed. .
+will no longer refer to the data available to the entire page. If you need to
+access this from within the loop you will likely want to set it to a variable
+instead of depending on the context.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Example:&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;  {{ $title := .Site.Title }}
+  {{ range .Params.tags }}
+    &amp;lt;li&amp;gt; &amp;lt;a href=&amp;#34;{{ $baseurl }}/tags/{{ . | urlize | lower  }}&amp;#34;&amp;gt;{{ . }}&amp;lt;/a&amp;gt; - {{ $title }} &amp;lt;/li&amp;gt;
+  {{ end }}&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;Notice how once we have entered the loop the value of {{ . }} has changed. We
+have defined a variable outside of the loop so we have access to it from within
+the loop.&lt;/p&gt;
+
+&lt;h1 id=&#34;hugo-parameters&#34;&gt;Hugo Parameters&lt;/h1&gt;
+
+&lt;p&gt;Hugo provides the option of passing values to the template language
+through the site configuration (for sitewide values), or through the meta
+data of each specific piece of content. You can define any values of any
+type (supported by your front matter/config format) and use them however
+you want to inside of your templates.&lt;/p&gt;
+
+&lt;h2 id=&#34;using-content-page-parameters&#34;&gt;Using Content (page) Parameters&lt;/h2&gt;
+
+&lt;p&gt;In each piece of content you can provide variables to be used by the
+templates. This happens in the &lt;a href=&#34;https://knightwupz.github.io/content/front-matter&#34;&gt;front matter&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;An example of this is used in this documentation site. Most of the pages
+benefit from having the table of contents provided. Sometimes the TOC just
+doesn&amp;rsquo;t make a lot of sense. We&amp;rsquo;ve defined a variable in our front matter
+of some pages to turn off the TOC from being displayed.&lt;/p&gt;
+
+&lt;p&gt;Here is the example front matter:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;9
+&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;---
+title: &amp;#34;Permalinks&amp;#34;
+date: &amp;#34;2013-11-18&amp;#34;
+aliases:
+  - &amp;#34;/doc/permalinks/&amp;#34;
+groups: [&amp;#34;extras&amp;#34;]
+groups_weight: 30
+notoc: true
+---&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;Here is the corresponding code inside of the template:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;  {{ if not .Params.notoc }}
+    &amp;lt;div id=&amp;#34;toc&amp;#34; class=&amp;#34;well col-md-4 col-sm-6&amp;#34;&amp;gt;
+    {{ .TableOfContents }}
+    &amp;lt;/div&amp;gt;
+  {{ end }}&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;h2 id=&#34;using-site-config-parameters&#34;&gt;Using Site (config) Parameters&lt;/h2&gt;
+
+&lt;p&gt;In your top-level configuration file (eg, &lt;code&gt;config.yaml&lt;/code&gt;) you can define site
+parameters, which are values which will be available to you in chrome.&lt;/p&gt;
+
+&lt;p&gt;For instance, you might declare:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-yaml&#34; data-lang=&#34;yaml&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-yaml&#34; data-lang=&#34;yaml&#34;&gt;params&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;  &lt;/span&gt;CopyrightHTML&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;Copyright &amp;amp;#xA9; 2013 John Doe. All Rights Reserved.&amp;#34;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;  &lt;/span&gt;TwitterUser&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;spf13&amp;#34;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;  &lt;/span&gt;SidebarRecentLimit&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;m&#34;&gt;5&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;Within a footer layout, you might then declare a &lt;code&gt;&amp;lt;footer&amp;gt;&lt;/code&gt; which is only
+provided if the &lt;code&gt;CopyrightHTML&lt;/code&gt; parameter is provided, and if it is given,
+you would declare it to be HTML-safe, so that the HTML entity is not escaped
+again.  This would let you easily update just your top-level config file each
+January 1st, instead of hunting through your templates.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;{{if .Site.Params.CopyrightHTML}}&amp;lt;footer&amp;gt;
+&amp;lt;div class=&amp;#34;text-center&amp;#34;&amp;gt;{{.Site.Params.CopyrightHTML | safeHtml}}&amp;lt;/div&amp;gt;
+&amp;lt;/footer&amp;gt;{{end}}&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;An alternative way of writing the &amp;ldquo;if&amp;rdquo; and then referencing the same value
+is to use &amp;ldquo;with&amp;rdquo; instead. With rebinds the context &lt;code&gt;.&lt;/code&gt; within its scope,
+and skips the block if the variable is absent:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;{{with .Site.Params.TwitterUser}}&amp;lt;span class=&amp;#34;twitter&amp;#34;&amp;gt;
+&amp;lt;a href=&amp;#34;https://twitter.com/{{.}}&amp;#34; rel=&amp;#34;author&amp;#34;&amp;gt;
+&amp;lt;img src=&amp;#34;/images/twitter.png&amp;#34; width=&amp;#34;48&amp;#34; height=&amp;#34;48&amp;#34; title=&amp;#34;Twitter: {{.}}&amp;#34;
+ alt=&amp;#34;Twitter&amp;#34;&amp;gt;&amp;lt;/a&amp;gt;
+&amp;lt;/span&amp;gt;{{end}}&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;Finally, if you want to pull &amp;ldquo;magic constants&amp;rdquo; out of your layouts, you can do
+so, such as in this example:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;6
+&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&amp;lt;nav class=&amp;#34;recent&amp;#34;&amp;gt;
+  &amp;lt;h1&amp;gt;Recent Posts&amp;lt;/h1&amp;gt;
+  &amp;lt;ul&amp;gt;{{range first .Site.Params.SidebarRecentLimit .Site.Recent}}
+    &amp;lt;li&amp;gt;&amp;lt;a href=&amp;#34;{{.RelPermalink}}&amp;#34;&amp;gt;{{.Title}}&amp;lt;/a&amp;gt;&amp;lt;/li&amp;gt;
+  {{end}}&amp;lt;/ul&amp;gt;
+&amp;lt;/nav&amp;gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;</description>
+      
+    </item>
+    
+  </channel>
+</rss>
