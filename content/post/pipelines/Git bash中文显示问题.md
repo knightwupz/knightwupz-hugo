@@ -1,7 +1,7 @@
 ---
 title: "Git bash中文显示问题"
-date: 2019-06-08T16:01:23+08:00
-lastmod: 2019-06-08T16:01:23+08:00
+date: 2019-06-07T16:01:23+08:00
+lastmod: 2019-06-07T16:01:23+08:00
 draft: false
 tags: ["Git", "坑", "中文显示"]
 categories: ["notes", "Git"]
