@@ -1,4 +1,11 @@
-git bash中文显示问题
+---
+title: "git bash中文显示问题"
+date: 2019-06-08T16:01:23+08:00
+lastmod: 2019-06-08T16:01:23+08:00
+draft: false
+
+---
+
 
 在Windows中使用git bash遇到了中文乱码的问题，当提交中文名字的文档“Git的基本使用方法.md”并添加评论`git commit -m "first note"`后，git显示中文乱码：
 
