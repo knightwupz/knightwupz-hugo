@@ -12,7 +12,7 @@ git commit -m "$msg"
 git push origin master
 
 # Build the project.
-hugo --theme=jane # if using a theme, replace by `hugo -t <yourtheme>`
+hugo --theme=jane # if using another theme, replace by `hugo -t <yourtheme>`
 
 # Go To Public folder
 cd public
