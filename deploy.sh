@@ -15,6 +15,7 @@ git push origin master
 # Build the project.
 hugo --theme=jane # if using another theme, replace by `hugo -t <yourtheme>`
 
+echo -e "\033[0;32m  Build blog websites in public file ...\033[0m"
 # Go To Public folder
 cd public
 # Add changes to git.
@@ -23,6 +24,8 @@ git add -A
 git commit -m "$msg"
 # Push source and build repos.
 git push origin master
+
+echo -e "\033[0;32m Return to knightwupz-hugo...\033[0m"
 
 # Come Back
 cd ..
