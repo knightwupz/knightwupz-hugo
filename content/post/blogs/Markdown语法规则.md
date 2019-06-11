@@ -2,12 +2,12 @@
 title: "Markdown语法规则"
 date: 2019-06-10T17:30:05+08:00
 lastmod: 2019-06-10T17:30:05+08:00
-draft: true
-keywords: []
+draft: false
+keywords: ["markdown","语法简介"]
 description: ""
-tags: []
-categories: []
-author: ""
+tags: ["markdown","工具"]
+categories: ["blog","notes"]
+author: knightwupz
 
 # You can also close(false) or open(true) something for this content.
 # P.S. comment can only be closed
